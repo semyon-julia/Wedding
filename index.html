@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  color: #222;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* УБИРАЕТ растягивание */
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url('hero.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+.date-box {
+  padding: 14px 28px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  display: inline-block;
+}
+
+/* INVITE */
+.invite {
+  background: #6b705c;
+  padding: 100px 20px;
+}
+
+.invite-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invite-left {
+  color: #f2e9dc;
+  font-size: 22px;
+  text-align: left;
+}
+
+.invite-right {
+  color: #f2e9dc;
+  font-size: 28px;
+  text-align: right;
+}
+
+/* TIMELINE IMAGE BLOCK */
+.timeline-image {
+  padding: 80px 20px;
+  background: #f8f6f3;
+  text-align: center;
+}
+
+.timeline-image {
+  width: 100vw;          /* ширина экрана */
+  margin-left: calc(-50vw + 50%); /* выравнивание по центру */
+  padding: 0;
+}
+
+.timeline-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.timeline {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
+
+.timeline-wrapper {
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+}
+
+.timeline-bg {
+  width: 100%;
+  display: block;
+}
+
+/* КОНТЕНТ */
+.timeline-content {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  color: #5c5a4a;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Заголовок */
+.timeline-title {
+  position: absolute;
+  top: 3%;
+  left: 35%;
+  transform: translateX(-50%);
+  font-size: 22px;
+}
+
+/* Дата */
+.timeline-date {
+  position: absolute;
+  top: 15%;
+  left: 35%;
+  transform: translateX(-50%);
+  font-size: 20px;
+}
+
+/* Пункты */
+.timeline-item {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+}
+
+/* КНОПКА */
+.map-button {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: #6b705c;
+  color: #f2e9dc;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.alcohol {
+  padding: 100px 20px;
+  text-align: center;
+  background: #f8f6f3;
+}
+
+.alcohol-container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.alcohol-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.alcohol-text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* КНОПКА */
+.alcohol-button {
+  display: inline-block;
+  padding: 14px 30px;
+  background: #6b705c;
+  color: #f2e9dc;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.alcohol-button:hover {
+  opacity: 0.8;
+}
+
+/* INFO BLOCK */
+.info {
+  background: #6b705c; /* как Invite */
+  padding: 100px 20px;
+}
+
+.info-container {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.info-title {
+  color: #f2e9dc;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  color: #f2e9dc;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.final {
+  padding: 120px 20px;
+  text-align: center;
+  background: #f8f6f3;
+}
+
+.final-container h2 {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .invite-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .invite-left,
+  .invite-right {
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content" style="top: 27%;">
+    <h1>Юлия и Семён</h1>
+    <div class="date-box">
+      19 июня 2026 • 14:00
+    </div>
+  </div>
+</section>
+
+<!-- INVITE -->
+<section class="invite">
+  <div class="invite-container">
+    <div class="invite-left">
+      Мы рады пригласить Вас на торжество по случаю нашей свадьбы!
+    </div>
+
+    <div class="invite-right">
+      19 июня 2026<br>14:00
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="timeline-wrapper">
+
+    <img src="timeline-clean.png" class="timeline-bg" alt="Расписание">
+
+    <!-- ТЕКСТ ПОВЕРХ -->
+    <div class="timeline-content">
+
+      <h2 class="timeline-title">Наш идеальный день</h2>
+
+      <div class="timeline-date">19 июня • пятница</div>
+
+      <div class="timeline-item" style="top: 26%;">
+        14:00 — Сбор гостей
+      </div>
+
+      <div class="timeline-item" style="top: 34%;">
+        15:00 — Церемония
+      </div>
+
+      <div class="timeline-item" style="top: 42%;">
+        16:00 — Банкет
+      </div>
+
+      <div class="timeline-item" style="top: 50%;">
+        21:30 — Свадебный торт
+      </div>
+      
+      <div class="timeline-item" style="top: 73%;">
+        Ждём Вас! <br>
+        П. Валуево, с. 1
+      </div>
+
+      <!-- КНОПКА -->
+      <a href="https://yandex.ru/maps/" target="_blank" class="map-button">
+        Открыть карту
+      </a>
+
+    </div>
+  </div>
+  
+  <section class="alcohol">
+  <div class="alcohol-container">
+
+    <h2 class="alcohol-title">Напитки</h2>
+
+    <p class="alcohol-text">
+      Нам важно, чтобы каждому гостю было комфортно.  
+      Пожалуйста, выберите предпочитаемые напитки по ссылке ниже.
+    </p>
+
+    <a href="https://forms.yandex.ru/u/69dcec2b95add5c39d2a2eaa" target="_blank" class="alcohol-button">
+      Выбрать напитки
+    </a>
+
+  </div>
+</section>
+  
+<section class="info">
+  <div class="info-container">
+
+    <h2 class="info-title">Важная информация</h2>
+
+    <ul class="info-list">
+      <li>1. Пожалуйста, подтвердите своё присутствие до 1 мая</li>
+      <li>2. Чтобы подчеркнуть значимость этого мероприятия, просим остановить выбор на соответствующих случаю вечерних нарядах. 
+Девушкам просьба оставить белый цвет для невесты ☺️</li>
+      <li>3. Не беспокойтесь с выбором подарков! Принимаем любые денежные знаки :)
+Если ваше сердце жаждет преподнести цветы, то просим сделать выбор в пользу одной белой розы. В итоге у нас получится один роскошный букет.</li>
+      <li>4. Если вы хотите подготовить что-то особенное, смело обращайтесь к нашему ведущему – Андрей +79203209995</li>
+    </ul>
+
+  </div>
+</section>
+  
+ <section class="final">
+  <div class="final-container">
+    <h2>С нетерпением ждём Вас!</h2>
+  </div>
+</section> 
+  
+</section>
+</body>
+</html>
